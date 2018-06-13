@@ -39,7 +39,7 @@ let objectLooper = function(obj) {
   for(let key in obj) {
     console.log(key + ' ' + obj[key]);
   }
-}
+};
 
 objectLooper(obj);
 // ^^ Using console.log to show each property name and its associated value.
@@ -47,3 +47,17 @@ objectLooper(obj);
 
 //3. Arrays in Objects
 
+//Create an object with a property called meals which is an array of strings:
+let food = {
+  meals: ['breakfast','second breakfast', 'elevenses', 'lunch',
+    'afternoon tea', 'dinner', 'supper']
+};
+
+let fourthMeal = function(obj) {
+  //Use console.log to show the name of a hobbit's fourth meal of the day.
+  console.log(food.meals[3]);
+};
+
+fourthMeal(food);
+
+//4. Arrays of objects
