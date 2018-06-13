@@ -23,3 +23,27 @@ console.log(loaf.flour + ' ' + loaf.water);
 console.log(loaf.hydration());
 
 // 2. Iterating over an object's properties
+
+// Create an object with five properties: foo, bar, fum, quux, and spam. Give each property a unique value of your choosing.
+
+let obj = {
+  foo : 1,
+  bar : 2,
+  fum : 3,
+  quux : 4,
+  spam : 5
+};
+// Loop over the object using for ... in
+
+let objectLooper = function(obj) {
+  for(let key in obj) {
+    console.log(key + ' ' + obj[key]);
+  }
+}
+
+objectLooper(obj);
+// ^^ Using console.log to show each property name and its associated value.
+
+
+//3. Arrays in Objects
+
