@@ -36,6 +36,7 @@ let obj = {
 // Loop over the object using for ... in
 
 let objectLooper = function(obj) {
+
   for(let key in obj) {
     console.log(key + ' ' + obj[key]);
   }
@@ -61,3 +62,36 @@ let fourthMeal = function(obj) {
 fourthMeal(food);
 
 //4. Arrays of objects
+
+// Create 3-5 objects, each with a name and a jobTitle. Use people you know, or characters from fiction, or your own inventions.
+
+let personOne = {
+  name : 'Jim',
+  jobTitle : 'Sales associate',
+};
+
+let personTwo = {
+  name : 'Pam',
+  jobTitle : 'Receptionist',
+};
+
+let personThree = {
+  name : 'Toby',
+  jobTitle : 'HR Representative',
+};
+// Store these objects in an array.
+
+let staff = [personOne, personTwo, personThree];
+
+// Iterate over the array and use console.log to show each person's job title and name.
+// console.log(staff[0].name);
+let arrayLooper = function(arr) {
+  for(let i = 0; i < arr.length; i++) {
+    console.log(arr[i].name + '|' + arr[i].jobTitle);
+  }
+};
+
+arrayLooper(staff);
+
+// 5. Properties that aren't there
+
