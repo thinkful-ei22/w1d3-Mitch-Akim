@@ -93,7 +93,7 @@ let staff = [personOne, personTwo, personThree];
 let arrayLooper = function(arr) {
   for(let i = 0; i < arr.length; i++) {
     arr[i].boss === undefined ? 
-      console.log(`${arr[i].jobTitle} ${arr[i].name} doesn't report to anybody. Except Michael.`) : 
+      console.log(`${arr[i].jobTitle} ${arr[i].name} doesn't report to anybody... Except Michael.`) : 
       console.log(`${arr[i].jobTitle} ${arr[i].name} reports to ${arr[i].boss}.`);
   }
 };
@@ -104,4 +104,37 @@ let arrayLooper = function(arr) {
 arrayLooper(staff);
 
 // 6. Cracking the Code
+
+// Redo your Cracking the Code problem from String Drills but this time use an object as your cipher.
+let cypher = {
+  a : 2,
+  b : 3,
+  c : 4,
+  d : 5 
+};
+// Additionally, create a decodeWords function that utilizes your decode function to accept a
+// single string of words, and then return the fully decoded message as a string.
+
+//Iterate through cypher for matching key
+//if matching key is found...
+    //return value and pass through dismantler[i].charAt("matchingKEY")
+//Else, return and push a ' '
+let rawCode = 'craft block argon meter bells brown croon droop';
+
+let decodeWords = function(str, obj) {
+  let crackedCode = '';
+  let dismantler = str.split(' ');
+  for(let i = 0; i < dismantler.length; i++) {
+    let tag = dismantler[i].charAt(0);
+    tag in obj ? crackedCode += dismantler[i].charAt(obj[tag]-1) : crackedCode += ' ';
+  }
+
+  return crackedCode;
+}
+
+console.log(decodeWords(rawCode, cypher));
+
+// 7. Factory Functions with LOTR
+
+
 
