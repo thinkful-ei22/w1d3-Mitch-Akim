@@ -117,7 +117,7 @@ let cypher = {
 
 //Iterate through cypher for matching key
 //if matching key is found...
-    //return value and pass through dismantler[i].charAt("matchingKEY")
+//return value and pass through dismantler[i].charAt("matchingKEY")
 //Else, return and push a ' '
 let rawCode = 'craft block argon meter bells brown croon droop';
 
@@ -130,11 +130,58 @@ let decodeWords = function(str, obj) {
   }
 
   return crackedCode;
-}
+};
 
 console.log(decodeWords(rawCode, cypher));
 
 // 7. Factory Functions with LOTR
 
+// Write a factory function called createCharacter that could appropriately build characters
+function createCharacter(name, nickName, race, origin, attack, defense, weapon) {
+  return {
+    name, nickName, race, origin, attack, defense, weapon, 
+    //Each character should have the method describe which takes no parameters and prints out the string: "{name} is a {race} from {origin}."
+    describe: function() {
+      return `${name} is a ${race} from ${origin} who uses a ${weapon}.`;
+    },
+    // Each character should also have a method called evaluateFight that takes in a character object and returns the following string: "Your opponent takes {x} damage and you receive {y} damage" where x and y are the differences between each characters attack and defense values. If defense exceeds attack, then take zero damage.
+    evaluateFight: function(enemy) {
+      return `Your opponent takes ${this.attack < enemy.defense ? 0 : this.attack - enemy.defense} damage and you receive ${enemy.attack < this.defense ? 0 : enemy.attack-this.defense} damage.`;
+    }
+  };
+}
 
+//Using array literal syntax, create an array characters that calls your factory function for each character in the table above with the relevant parameters. Your characters array should now have 5 objects in it.
+let characters = [createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6, 'wizard staff'), 
+  createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1, 'the Ring'),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2, 'Sting and Barrow Blade'),
+  createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8, 'Anduril'),
+  createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5, 'Bow and Arrow') ];
+
+//Add a new character to characters (make up any attributes not provided): Arwen Undomiel is a Half-Elf of Rivendell
+characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendell', 0, 11, 'Hadhafang'));
+
+//Using the .find() function, retrieve your character nicknamed aragorn from characters and then call his describe method.\
+function isAragorn(input) {
+  return input.nickName === 'aragorn';
+}
+
+console.log(characters.find(isAragorn).describe());
+
+//Using the .filter() function, create a new array from characters that ONLY contains characters of the race Hobbit.
+function filterByHobbits(input) {
+  return input.race === 'Hobbit';
+}
+
+let hobbits = characters.filter(filterByHobbits);
+console.log(hobbits);
+
+//Using the .filter() function, create a new array from characters that ONLY contains characters with attack value above 5.
+function filterByAttack(input) {
+  return input.attack > 5;
+}
+
+let highAttack = characters.filter(filterByAttack);
+console.log(highAttack);
+//console.log(characters);
 
