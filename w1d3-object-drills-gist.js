@@ -61,18 +61,21 @@ let fourthMeal = function(obj) {
 
 fourthMeal(food);
 
-//4. Arrays of objects
+// 4. Arrays of objects
+// 5. Properties that aren't there
 
 // Create 3-5 objects, each with a name and a jobTitle. Use people you know, or characters from fiction, or your own inventions.
-
+// Expand on the previous example by adding a boss property to everyone except the owner of the company.
 let personOne = {
   name : 'Jim',
   jobTitle : 'Sales associate',
+  boss : 'Toby'
 };
 
 let personTwo = {
   name : 'Pam',
   jobTitle : 'Receptionist',
+  boss: 'Toby'
 };
 
 let personThree = {
@@ -84,14 +87,21 @@ let personThree = {
 let staff = [personOne, personTwo, personThree];
 
 // Iterate over the array and use console.log to show each person's job title and name.
-// console.log(staff[0].name);
+// Change the iteration to print out messages in this format: 
+// "${title} ${name} reports to ${boss}.". For example: 
+// Junior Engineer Bob reports to Fred..
 let arrayLooper = function(arr) {
   for(let i = 0; i < arr.length; i++) {
-    console.log(arr[i].name + '|' + arr[i].jobTitle);
+    arr[i].boss === undefined ? 
+      console.log(`${arr[i].jobTitle} ${arr[i].name} doesn't report to anybody. Except Michael.`) : 
+      console.log(`${arr[i].jobTitle} ${arr[i].name} reports to ${arr[i].boss}.`);
   }
 };
 
+// What gets printed out for the owner?
+// for the owner, boss = undefined
+
 arrayLooper(staff);
 
-// 5. Properties that aren't there
+// 6. Cracking the Code
 
